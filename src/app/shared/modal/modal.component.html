@@ -1,0 +1,12 @@
+<div class="modal__overlay" (click)="onOverlayClicked($event)">
+    <div class="modal__container" (click)="onModalClicked($event)">
+        <div class="modal__close" (click)="close($event)">
+            <i class="fa fa-times fa-2x"></i>
+        </div>
+        <div class="modal__header">{{modalHeader}}</div>
+        <div class="modal__content">
+            <ng-template appInsertion></ng-template>
+        </div>
+    </div>
+</div>
+

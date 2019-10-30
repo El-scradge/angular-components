@@ -1,0 +1,62 @@
+//.modal__container {
+//  transition: all ease 0.5s;
+//  opacity: 0;
+//  position:fixed;
+//  top: -30%;
+//  left:50%;
+//  transform: translateY(-50%) translateX(-50%);
+//  backface-visibility: visible;
+//  z-index: 2000;
+//  background: white;
+//  box-shadow: 0 0 15px rgba(black, 0.8);
+//  &:after {
+//    //content: '';
+//    width: 5000px;
+//    height: 5000px;
+//    background-color: rgba(0,0,0,0.3);
+//    position: relative;
+//    z-index: 1999;
+//    display: block;
+//    transform: translateY(-50%) translateX(-50%);
+//  }
+//}
+@import "../../../assets/sass/variables";
+.modal__overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__container {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: $global-radius;
+  overflow: hidden;
+}
+.modal__close {
+  position: absolute;
+  top: .7rem;
+  right: 1rem;
+  color: white;
+}
+.modal__header {
+  background: $primary;
+  height: 50px;
+  padding: $baseline/2;
+}
+.modal__content {
+  padding: $baseline/2;
+  max-height: 70vh;
+  overflow: auto;
+}
+
