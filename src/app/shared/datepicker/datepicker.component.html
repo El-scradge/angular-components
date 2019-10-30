@@ -1,0 +1,48 @@
+<div class="datepicker__overlay">
+  <div class="datepicker__container">
+    <div class="datepicker__closer" (click)="close()">x</div>
+    <div class="datepicker__header">
+      {{selectedDate}}
+    </div>
+    <div class="datepicker__content">
+      <div class="datepicker__years animate" [ngClass]="{'grid__expanded': yearsOpen}">
+        <div class="preview">
+          <span *ngFor="let py of yearPreview | keyvalue" class="year" (click)="setYear(py.value)"  [ngClass]="{'day--selected': isSelectedYear(py.value)}">{{py.value}}</span>
+        </div>
+        <div class="years__grid animate">
+          <div class="year" *ngFor="let year of yearPicker" (click)="setYear(year)"
+               [ngClass]="{'day--selected': isSelectedYear(year)}">{{year}}
+          </div>
+          <div class="expander" (click)="yearsOpen = !yearsOpen"> + </div>
+        </div>
+      </div>
+
+      <div class="datepicker__months animate" [ngClass]="{'grid__expanded': monthsOpen}">
+        <div class="expander" (click)="monthsOpen = !monthsOpen"> + </div>
+        <div class="preview animate">
+          <span *ngFor="let pm of monthPreview | keyvalue" class="month" [ngClass]="{'day--selected': isSelectedMonth(pm.value)}" (click)="setMonth(pm.value)">{{pm.value}}</span>
+        </div>
+        <div class="selector__grid">
+          <div class="month--small" *ngFor="let month of monthPicker | keyvalue" [ngStyle]="{'order': getOrder(month.key)}"
+               [ngClass]="{'day--selected': isSelectedMonth(month.value)}" (click)="setMonth(month.value)">{{month.value}}
+          </div>
+        </div>
+      </div>
+
+      <div class="datepicker__days">
+
+        <span *ngFor="let day of weekDaysHeaders" class="day__title">{{day}}</span>
+
+          <div *ngFor="let day of grid" class="date__day" [ngClass]="{'day--selected': isSelectedDay(day.value)}" (click)="setDay(day)">{{day.value}}</div>
+      </div>
+
+    </div>
+
+    <button class="button" id="todays-date" (click)="setTodaysDate()">
+      Today's date
+    </button>
+    <button class="button" id="ok" (click)="submit($event)">Ok</button>
+  </div>
+  <!--<div class="datepicker__overlay" (click)="onOverlayClicked($event)">-->
+<!--</div>-->
+</div>
